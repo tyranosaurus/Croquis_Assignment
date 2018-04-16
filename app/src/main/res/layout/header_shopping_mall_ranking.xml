@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tyranotyrano.croquis_assignment.viewmodel.HeaderViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f1f5f7"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageview_ranking_icon"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="4dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_shopping_mall_ranking_swap" />
+
+        <TextView
+            android:id="@+id/textview_update_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{viewModel.updateDate}"
+            android:textSize="12dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <com.tyranotyrano.croquis_assignment.view.ShoppingMallHeaderButton
+            android:id="@+id/headrbutton_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:onClick="@{viewModel::onFilterClick}"
+            app:buttonIcon="@drawable/ic_filter_list"
+            app:text="@string/shopping_mall_header_button_filter"
+            app:textColor="@color/colorHeaderButtonName"/>
+
+        <com.tyranotyrano.croquis_assignment.view.ShoppingMallHeaderButton
+            android:id="@+id/headrbutton_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            app:buttonIcon="@drawable/ic_search"
+            android:onClick="@{viewModel::onSearchClick}"
+            app:text="@string/shopping_mall_header_button_search"
+            app:textColor="@color/colorHeaderButtonName"/>
+
+    </LinearLayout>
+
+</layout>

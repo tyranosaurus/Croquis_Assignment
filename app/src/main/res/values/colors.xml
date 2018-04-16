@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Theme Color -->
+    <color name="colorPrimary">#f41c65</color>
+    <color name="colorPrimaryDark">#d61d54</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+
+    <!-- ShoppingMallStyle Color -->
+    <color name="colorStrokeDefault">#e5e5e5</color>
+    <color name="colorBackgroundDefault">#ffffff</color>
+    <color name="colorStrokeFeminine">#ebcbed</color>
+    <color name="colorBackgroundFeminine">#fac5ff</color>
+    <color name="colorStrokeModernChic">#dcdcdc</color>
+    <color name="colorBackgroundModernChic">#f0f0f0</color>
+    <color name="colorStrokeSimpleBasic">#ffe28a</color>
+    <color name="colorBackgroundSimpleBasic">#ffecb3</color>
+    <color name="colorStrokeLovely">#e5c3d6</color>
+    <color name="colorBackgroundLovely">#ffcbe8</color>
+    <color name="colorStrokeUnique">#d5c6df</color>
+    <color name="colorBackgroundUnique">#efe4f6</color>
+    <color name="colorStrokeMissyStyle">#efd2a2</color>
+    <color name="colorBackgroundMissyStyle">#faebd2</color>
+    <color name="colorStrokeCampusLook">#dadce1</color>
+    <color name="colorBackgroundCampusLook">#eef0f9</color>
+    <color name="colorStrokeVintage">#cdc3b9</color>
+    <color name="colorBackgroundVintage">#ede3d9</color>
+    <color name="colorStrokeSexyGlam">#ffa9a9</color>
+    <color name="colorBackgroundSexyGlam">#ffcbcb</color>
+    <color name="colorStrokeSchoolLook">#d6e5c9</color>
+    <color name="colorBackgroundSchoolLook">#e7ffd4</color>
+    <color name="colorStrokeRomantic">#e4e4b9</color>
+    <color name="colorBackgroundRomantic">#fefdbb</color>
+    <color name="colorStrokeOfficeLook">#d7dee5</color>
+    <color name="colorBackgroundOfficeLook">#e8f3ff</color>
+    <color name="colorStrokeLuxury">#d9c8b9</color>
+    <color name="colorBackgroundLuxury">#edd2ba</color>
+    <color name="colorStrokeHollywoodStyle">#bfe6f0</color>
+    <color name="colorBackgroundHollywoodStyle">#e8f3ff</color>
+
+    <!-- ShoppingMall Rank header -->
+    <color name="colorHeaderButtonStroke">#808080</color>
+    <color name="colorHeaderButtonClicked">#e5e3e3</color>
+    <color name="colorHeaderButtonUnclicked">#ffffff</color>
+    <color name="colorHeaderButtonName">#808080</color>
+
+    <!-- ShoppingMall Rank Item -->
+    <color name="colorShoppingMallRanking">#b0bec5</color>
+    <color name="colorShoppingMallName">#616161</color>
+    <color name="colorShoppingMallAge">#808080</color>
+    <color name="colorShoppingMallStyle">#808080</color>
+
+    <!-- Filter -->
+    <color name="colorFilterTitle">#4c4c4c</color>
+    <color name="colorFilterSubTitle">#656565</color>
+    <color name="colorFilterBackground">#f1f4f7</color>
+    <color name="colorFilterReset">#53c0c4</color>
+    <color name="colorFilterSubTitleBackground">#e7e7e7</color>
+    <color name="colorFilterSelectComplete">#53c0c4</color>
+    <color name="colorFilterAges">#53c0c4</color>
+    <color name="colorFilterStyles">#e91e63</color>
+
+</resources>

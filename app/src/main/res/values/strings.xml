@@ -1,0 +1,53 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Croquis_Assignment</string>
+
+    <!-- Shopping Mall Header-->
+    <string name="shopping_mall_header_button_default">이름</string>
+    <string name="shopping_mall_header_button_filter">필터</string>
+    <string name="shopping_mall_header_button_search">쇼핑몰 검색</string>
+    <string name="shopping_mall_header_ranking_update_date">차 랭킹</string>
+
+    <!-- Shopping Mall Item -->
+    <string name="shopping_mall_rank">0</string>
+    <string name="shopping_mall_name">쇼핑몰 이름</string>
+    <string name="shopping_mall_age_10">&#160;10대&#160;</string>
+    <string name="shopping_mall_age_20">&#160;20대&#160;</string>
+    <string name="shopping_mall_age_30">&#160;30대&#160;</string>
+    <string name="shopping_mall_style_first">스타일1</string>
+    <string name="shopping_mall_style_second">스타일2</string>
+
+    <!-- Filter -->
+    <string name="filter_title">쇼핑몰 필터</string>
+    <string name="filter_reset">초기화</string>
+    <string name="filter_ages">연령대</string>
+    <string name="filter_styles">스타일</string>
+    <string name="filter_age_default">나이</string>
+
+    <!-- Filter Ages -->
+    <string name="filter_age_10s">10대</string>
+    <string name="filter_age_20s_early">20대 초반</string>
+    <string name="filter_age_20s_mid">20대 중반</string>
+    <string name="filter_age_20s_late">20대 후반</string>
+    <string name="filter_age_30s_early">30대 초반</string>
+    <string name="filter_age_30s_mid">30대 중반</string>
+    <string name="filter_age_30s_late">30대 후반</string>
+
+    <!-- Filter Styles -->
+    <string name="filter_style_default">디폴트</string>
+    <string name="filter_style_feminine">페미닌</string>
+    <string name="filter_style_modern_chic">모던시크</string>
+    <string name="filter_style_simple_basic">심플베이직</string>
+    <string name="filter_style_lovely">러블리</string>
+    <string name="filter_style_unique">유니크</string>
+    <string name="filter_style_missy_style">미시스타일</string>
+    <string name="filter_style_campus_look">캠퍼스룩</string>
+    <string name="filter_style_vintage">빈티지</string>
+    <string name="filter_style_sexy_glam">섹시글램</string>
+    <string name="filter_style_school_look">스쿨룩</string>
+    <string name="filter_style_romantic">로맨틱</string>
+    <string name="filter_style_office_look">오피스룩</string>
+    <string name="filter_style_luxury">럭셔리</string>
+    <string name="filter_style_hollywood_style">헐리웃스타일</string>
+
+</resources>

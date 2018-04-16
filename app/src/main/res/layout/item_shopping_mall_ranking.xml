@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        
+        <variable
+            name="shoppingMall"
+            type="com.tyranotyrano.croquis_assignment.model.ShoppingMall"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/textview_ranking"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/shopping_mall_rank"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorShoppingMallRanking"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleimageview_profile"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:imageUrl="@{shoppingMall.imageUrl}"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@{shoppingMall.name}"
+                android:textColor="@color/colorShoppingMallName"
+                android:textSize="17dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textview_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/shape_age_box"
+                    android:paddingBottom="1dp"
+                    android:paddingEnd="3dp"
+                    android:paddingStart="3dp"
+                    android:paddingTop="1dp"
+                    android:text="@{shoppingMall.age}"
+                    android:textColor="@color/colorShoppingMallAge"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/textview_style_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_style_box_first"
+                    android:paddingBottom="1dp"
+                    android:paddingEnd="3dp"
+                    android:paddingStart="3dp"
+                    android:paddingTop="1dp"
+                    android:text="@{shoppingMall.styleFirst}"
+                    android:textColor="@color/colorShoppingMallStyle"
+                    android:textSize="10dp"/>
+
+                <TextView
+                    android:id="@+id/textview_style_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_style_box_second"
+                    android:paddingBottom="1dp"
+                    android:paddingEnd="3dp"
+                    android:paddingStart="3dp"
+                    android:paddingTop="1dp"
+                    android:visibility="@{shoppingMall.styleSecond != null ? View.VISIBLE : View.GONE}"
+                    android:text="@{shoppingMall.styleSecond}"
+                    android:textColor="@color/colorShoppingMallStyle"
+                    android:textSize="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageview_ranking_change"
+            android:layout_width="16dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_ranking_stay" />
+
+    </LinearLayout>
+
+</layout>

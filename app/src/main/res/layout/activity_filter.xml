@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.databinding.ObservableArrayList" />
+
+        <variable
+            name="viewModel"
+            type="com.tyranotyrano.croquis_assignment.viewmodel.FilterViewModel"/>
+        
+        <variable
+            name="ageList"
+            type="ObservableArrayList&lt;Integer&gt;"/>
+
+        <variable
+            name="styleList"
+            type="ObservableArrayList&lt;Integer&gt;"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorFilterBackground"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorWhite"
+            android:minHeight="?attr/actionBarSize">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageview_close"
+                    android:layout_width="26dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_close"
+                    android:onClick="@{viewModel::onCloseClick}"/>
+
+                <TextView
+                    android:id="@+id/textview_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/filter_title"
+                    android:textColor="@color/colorFilterTitle"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/textview_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_filter_reset_button"
+                    android:padding="8dp"
+                    android:text="@string/filter_reset"
+                    android:textColor="@color/colorFilterReset"
+                    android:textSize="15dp"
+                    android:onClick="@{viewModel::onResetClick}"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textview_ages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorFilterSubTitleBackground"
+                    android:paddingBottom="6dp"
+                    android:paddingStart="14dp"
+                    android:paddingTop="6dp"
+                    android:text="@string/filter_ages"
+                    android:textColor="@color/colorFilterSubTitle"
+                    android:textSize="14dp" />
+
+                <android.support.v7.widget.GridLayout
+                    android:id="@+id/gridlayout_select_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    app:orientation="horizontal"
+                    app:columnCount="4">
+
+                    <TextView
+                        android:id="@+id/textview_age_10s"
+                        android:background="@{ageList.get(0) == 0 ? @drawable/shape_filter_age_unselected : @drawable/shape_filter_age_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_age_10s"
+                        android:textColor="@{ageList.get(0) == 0 ? @color/colorFilterAges : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="0"
+                        android:onClick="@{viewModel::onAgeClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_age_20s_early"
+                        android:background="@{ageList.get(1) == 0 ? @drawable/shape_filter_age_unselected : @drawable/shape_filter_age_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_age_20s_early"
+                        android:textColor="@{ageList.get(1) == 0 ? @color/colorFilterAges : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="1"
+                        android:onClick="@{viewModel::onAgeClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_age_20s_mid"
+                        android:background="@{ageList.get(2) == 0 ? @drawable/shape_filter_age_unselected : @drawable/shape_filter_age_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_age_20s_mid"
+                        android:textColor="@{ageList.get(2) == 0 ? @color/colorFilterAges : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="2"
+                        android:onClick="@{viewModel::onAgeClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_age_20s_late"
+                        android:background="@{ageList.get(3) == 0 ? @drawable/shape_filter_age_unselected : @drawable/shape_filter_age_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_age_20s_late"
+                        android:textColor="@{ageList.get(3) == 0 ? @color/colorFilterAges : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="3"
+                        android:onClick="@{viewModel::onAgeClick}"
+                        app:layout_columnWeight="1"/>
+
+                    <TextView
+                        android:id="@+id/textview_age_30s_early"
+                        android:background="@{ageList.get(4) == 0 ? @drawable/shape_filter_age_unselected : @drawable/shape_filter_age_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_age_30s_early"
+                        android:textColor="@{ageList.get(4) == 0 ? @color/colorFilterAges : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="4"
+                        android:onClick="@{viewModel::onAgeClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_age_30s_mid"
+                        android:background="@{ageList.get(5) == 0 ? @drawable/shape_filter_age_unselected : @drawable/shape_filter_age_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_age_30s_mid"
+                        android:textColor="@{ageList.get(5) == 0 ? @color/colorFilterAges : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="5"
+                        android:onClick="@{viewModel::onAgeClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_age_30s_late"
+                        android:background="@{ageList.get(6) == 0 ? @drawable/shape_filter_age_unselected : @drawable/shape_filter_age_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_age_30s_late"
+                        android:textColor="@{ageList.get(6) == 0 ? @color/colorFilterAges : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="6"
+                        android:onClick="@{viewModel::onAgeClick}"
+                        app:layout_columnWeight="1" />
+
+                </android.support.v7.widget.GridLayout>
+
+                <TextView
+                    android:id="@+id/textview_styles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorFilterSubTitleBackground"
+                    android:paddingBottom="6dp"
+                    android:paddingStart="14dp"
+                    android:paddingTop="6dp"
+                    android:text="@string/filter_styles"
+                    android:textColor="@color/colorFilterSubTitle"
+                    android:textSize="14dp" />
+
+                <android.support.v7.widget.GridLayout
+                    android:id="@+id/gridlayout_select_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    app:orientation="horizontal"
+                    app:columnCount="3">
+
+                    <TextView
+                        android:id="@+id/textview_style_feminine"
+                        android:background="@{styleList.get(0) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_feminine"
+                        android:textColor="@{styleList.get(0) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="0"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_modern_chic"
+                        android:background="@{styleList.get(1) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_modern_chic"
+                        android:textColor="@{styleList.get(1) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="1"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_simple_basic"
+                        android:background="@{styleList.get(2) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_simple_basic"
+                        android:textColor="@{styleList.get(2) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="2"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_lovely"
+                        android:background="@{styleList.get(3) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_lovely"
+                        android:textColor="@{styleList.get(3) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="3"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_unique"
+                        android:background="@{styleList.get(4) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_unique"
+                        android:textColor="@{styleList.get(4) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="4"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_missy_style"
+                        android:background="@{styleList.get(5) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_missy_style"
+                        android:textColor="@{styleList.get(5) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="5"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_campus_look"
+                        android:background="@{styleList.get(6) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_campus_look"
+                        android:textColor="@{styleList.get(6) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="6"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_vintage"
+                        android:background="@{styleList.get(7) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_vintage"
+                        android:textColor="@{styleList.get(7) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="7"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_sexy_glam"
+                        android:background="@{styleList.get(8) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_sexy_glam"
+                        android:textColor="@{styleList.get(8) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="8"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_school_look"
+                        android:background="@{styleList.get(9) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_school_look"
+                        android:textColor="@{styleList.get(9) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="9"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_romantic"
+                        android:background="@{styleList.get(10) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_romantic"
+                        android:textColor="@{styleList.get(10) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="10"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_office_look"
+                        android:background="@{styleList.get(11) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_office_look"
+                        android:textColor="@{styleList.get(11) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="11"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_luxury"
+                        android:background="@{styleList.get(12) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_luxury"
+                        android:textColor="@{styleList.get(12) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="12"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                    <TextView
+                        android:id="@+id/textview_style_hollywood_style"
+                        android:background="@{styleList.get(13) == 0 ? @drawable/shape_filter_style_unselected : @drawable/shape_filter_style_selected}"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/filter_style_hollywood_style"
+                        android:textColor="@{styleList.get(13) == 0 ? @color/colorFilterStyles : @color/colorWhite}"
+                        android:textSize="14dp"
+                        android:tag="13"
+                        android:onClick="@{viewModel::onStyleClick}"
+                        app:layout_columnWeight="1" />
+
+                </android.support.v7.widget.GridLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorFilterSelectComplete"
+            android:gravity="center"
+            android:text="선택완료"
+            android:textSize="17dp"
+            android:textColor="@color/colorWhite"
+            android:onClick="@{viewModel::onSelectComplete}"/>
+
+    </LinearLayout>
+
+</layout>
+
